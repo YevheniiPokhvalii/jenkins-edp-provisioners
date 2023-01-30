@@ -18,7 +18,7 @@ import hudson.model.labels.LabelAtom
 import javaposse.jobdsl.plugin.*
 import com.cloudbees.hudson.plugins.folder.*
 
-def getProvisioner = new URL('https://github.com/YevheniiPokhvalii/jenkins-edp-provisioners/blob/main/gitlab-ci-provisioner').openConnection()
+def getProvisioner = new URL('https://raw.githubusercontent.com/YevheniiPokhvalii/jenkins-edp-provisioners/main/gitlab-ci-provisioner').openConnection()
 String scriptText = ""
 if (getProvisioner.getResponseCode().equals(200)) {
     scriptText = getProvisioner.getInputStream().getText()
