@@ -24,7 +24,7 @@ if (getProvisioner.getResponseCode().equals(200)) {
     scriptText = getProvisioner.getInputStream().getText()
 }
 
-def jobName = "gitlab-default"
+def jobName = "gitlab"
 def folderName = "job-provisions"
 def ciFolderName = "ci"
 def folder = Jenkins.instance.getItem(folderName)
