@@ -18,13 +18,13 @@ import hudson.model.labels.LabelAtom
 import javaposse.jobdsl.plugin.*
 import com.cloudbees.hudson.plugins.folder.*
 
-def getProvisioner = new URL('https://raw.githubusercontent.com/epam/edp-jenkins-operator/master/build/configs/job-provisions/ci/default-ci-provisioner').openConnection()
+def getProvisioner = new URL('').openConnection()
 String scriptText = ""
 if (getProvisioner.getResponseCode().equals(200)) {
     scriptText = getProvisioner.getInputStream().getText()
 }
 
-def jobName = "default"
+def jobName = "gitlab-default"
 def folderName = "job-provisions"
 def ciFolderName = "ci"
 def folder = Jenkins.instance.getItem(folderName)
@@ -50,6 +50,9 @@ def definitionList = [new StringParameterDefinition("NAME", ""),
                       new StringParameterDefinition("BRANCH", ""),
                       new StringParameterDefinition("GIT_SERVER_CR_NAME", ""),
                       new StringParameterDefinition("GIT_SERVER_CR_VERSION", ""),
+                      new StringParameterDefinition("GIT_SERVER", ""),
+                      new StringParameterDefinition("GIT_SSH_PORT", ""),
+                      new StringParameterDefinition("GIT_USERNAME", ""),
                       new StringParameterDefinition("GIT_CREDENTIALS_ID", ""),
                       new StringParameterDefinition("REPOSITORY_PATH", ""),
                       new StringParameterDefinition("JIRA_INTEGRATION_ENABLED", ""),
